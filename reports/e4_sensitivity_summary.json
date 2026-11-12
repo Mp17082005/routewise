@@ -1,0 +1,33 @@
+{
+  "n_shipments": 40,
+  "mean_stability": 0.9670500000000001,
+  "flip_rate_under_weight_noise": 0.032949999999999924,
+  "low_confidence_shipments": [
+    "S036"
+  ],
+  "non_compliant_shipments": [
+    "S010",
+    "S030"
+  ],
+  "share_recommendations_pareto_optimal": 1.0,
+  "near_tie_shipments": [
+    "S006",
+    "S011",
+    "S016",
+    "S024",
+    "S032",
+    "S036"
+  ],
+  "confidence_counts": {
+    "High": 31,
+    "Medium": 8,
+    "Low": 1
+  },
+  "mean_flip_rate_by_criterion_weight": {
+    "cost": 0.0549,
+    "time": 0.0262,
+    "reliability": 0.0328,
+    "risk": 0.0311
+  },
+  "most_fragile_criterion": "cost"
+}

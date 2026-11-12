@@ -1,0 +1,7 @@
+{
+  "noise_sigma": 0.15,
+  "decision_flip_rate": 0.3,
+  "mean_elc_regret_vs_oracle_usd": 4741.382342344946,
+  "median_elc_regret_vs_oracle_usd": 1511.2905097899184,
+  "share_matching_oracle": 0.35
+}

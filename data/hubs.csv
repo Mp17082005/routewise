@@ -1,0 +1,15 @@
+hub_id,name,country,congestion,geopolitical_risk,handling_cost,is_chokepoint
+MUM,Mumbai (Nhava Sheva),IN,0.62,0.22,140.0,False
+CMB,Colombo,LK,0.45,0.25,110.0,False
+JEA,Jebel Ali,AE,0.3,0.3,160.0,False
+SIN,Singapore,SG,0.35,0.08,150.0,False
+PSD,Port Said (Suez),EG,0.68,0.78,190.0,True
+JED,Jeddah (Red Sea),SA,0.55,0.72,150.0,True
+CPT,Cape Town,ZA,0.4,0.28,120.0,False
+RTM,Rotterdam,NL,0.48,0.07,170.0,False
+HAM,Hamburg,DE,0.52,0.07,175.0,False
+SHA,Shanghai,CN,0.72,0.3,130.0,False
+PUS,Busan,KR,0.38,0.18,135.0,False
+LAX,Los Angeles,US,0.75,0.1,210.0,False
+NYC,New York,US,0.58,0.09,205.0,False
+SAN,Santos,BR,0.5,0.26,125.0,False

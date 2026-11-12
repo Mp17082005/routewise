@@ -1,0 +1,691 @@
+shipment_id,profile,chosen,compliant,confidence,stability,margin,warnings,explanation
+S001,budget,R-S001-1,True,High,0.998,0.109586,High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit).,"Recommended: R-S001-1 via MUM > JEA > JED > PSD > RTM (sea, 3 transshipments).
+Cost $11,916 | expected transit 31.0d (P50 30.4d, P90 34.9d) | 0% chance of missing the 50.8d hard deadline | route risk 0.65.
+Weighting profile: budget (cost 0.60, time 0.10, reliability 0.15, risk 0.15) — budget priority, general cargo.
+
+Why it beats the runner-up R-S001-3:
+  - better cost: $11,916 vs $17,071 (-30.2%)
+  - better expected transit time: 31.0d vs 37.3d (-6.3d)
+Trade-off accepted:
+  - worse route risk (congestion + geopolitical): 0.65 vs 0.38 (+0.27)
+Score 0.306 vs 0.416 (margin 0.110; lower is better).
+
+vs cheapest: this IS the cheapest option.
+vs fastest (R-S001-4): it would arrive 22.9d sooner and cost $20,599 more, but it is not allowed (cost $32,515 exceeds budget cap $22,795 by $9,720).
+
+Eliminated options:
+  - R-S001-4: cost $32,515 exceeds budget cap $22,795 by $9,720
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit)."
+S002,urgent,R-S002-4,True,High,1.0,0.599639,,"Recommended: R-S002-4 via MUM > JEA > HAM (air+sea, 1 transshipment).
+Cost $4,556 | expected transit 7.8d (P50 7.5d, P90 8.5d) | 3% chance of missing the 9.4d soft deadline | route risk 0.39.
+Weighting profile: urgent (cost 0.15, time 0.40, reliability 0.30, risk 0.15) — urgent priority, general cargo.
+
+Why it beats the runner-up R-S002-2:
+  - better expected transit time: 7.8d vs 31.2d (-23.4d)
+  - better risk of missing the deadline: 3% vs 100% (-97 pts)
+  - better route risk (congestion + geopolitical): 0.39 vs 0.40 (-0.01)
+Trade-off accepted:
+  - worse cost: $4,556 vs $3,155 (+44.4%)
+Score 0.150 vs 0.750 (margin 0.600; lower is better).
+
+vs cheapest (R-S002-3): we pay $2,825 more (+163.1%); in exchange deadline-miss risk falls from 100% to 3%, it arrives 25.3d sooner on average, route risk falls from 0.66 to 0.39.
+vs fastest: this IS the fastest option.
+
+Eliminated options:
+  - R-S002-5: dominated by R-S002-3, which is no worse on cost, time, reliability and risk — and better on at least one.
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S003,critical,R-S003-3,True,High,1.0,0.25,,"Recommended: R-S003-3 via CMB > RTM (air, 0 transshipments).
+Cost $11,535 | expected transit 2.5d (P50 2.4d, P90 2.4d) | 0% chance of missing the 33.5d soft deadline | route risk 0.36.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, perishable cargo.
+
+Why it beats the runner-up R-S003-2:
+  - better risk of missing the deadline: 0% vs 1% (-1 pts)
+  - better expected transit time: 2.5d vs 29.4d (-27.0d)
+Trade-off accepted:
+  - worse cost: $11,535 vs $4,915 (+134.7%)
+Score 0.200 vs 0.450 (margin 0.250; lower is better).
+
+vs cheapest (R-S003-4): we pay $8,515 more (+281.9%); in exchange deadline-miss risk falls from 39% to 0%, it arrives 30.6d sooner on average, route risk falls from 0.64 to 0.36.
+  The cheapest option is not allowed: geopolitical risk 0.78 exceeds the perishable cargo limit 0.65.
+vs fastest: this IS the fastest option.
+
+Eliminated options:
+  - R-S003-1: geopolitical risk 0.78 exceeds the perishable cargo limit 0.65
+  - R-S003-4: geopolitical risk 0.78 exceeds the perishable cargo limit 0.65
+  - R-S003-5: geopolitical risk 0.81 exceeds the perishable cargo limit 0.65
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S004,budget,R-S004-1,True,High,1.0,,,"Recommended: R-S004-1 via SHA > RTM (sea, 0 transshipments).
+Cost $2,924 | expected transit 28.8d (P50 28.2d, P90 31.3d) | 1% chance of missing the 36.0d hard deadline | route risk 0.45.
+Weighting profile: budget (cost 0.60, time 0.10, reliability 0.15, risk 0.15) — budget priority, general cargo.
+
+vs cheapest (R-S004-2): we pay $1,310 more (+81.1%); in exchange deadline-miss risk falls from 100% to 1%, it arrives 17.4d sooner on average, route risk falls from 0.67 to 0.45.
+  The cheapest option is not allowed: P90 transit 49.5d exceeds hard deadline 36.0d by 13.5d.
+vs fastest: this IS the fastest option.
+
+Eliminated options:
+  - R-S004-2: P90 transit 49.5d exceeds hard deadline 36.0d by 13.5d
+  - R-S004-3: P90 transit 41.9d exceeds hard deadline 36.0d by 5.9d
+  - R-S004-4: P90 transit 41.5d exceeds hard deadline 36.0d by 5.5d
+  - R-S004-5: P90 transit 45.9d exceeds hard deadline 36.0d by 9.9d
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S005,critical,R-S005-2,True,High,1.0,0.314329,,"Recommended: R-S005-2 via SHA > PUS > LAX (sea, 1 transshipment).
+Cost $3,725 | expected transit 18.7d (P50 18.3d, P90 20.1d) | 2% chance of missing the 21.7d soft deadline | route risk 0.46.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, perishable cargo.
+
+Why it beats the runner-up R-S005-1:
+  - better route risk (congestion + geopolitical): 0.46 vs 0.52 (-0.06)
+  - better cost: $3,725 vs $4,533 (-17.8%)
+Trade-off accepted:
+  - worse expected transit time: 18.7d vs 15.2d (+3.5d)
+  - worse risk of missing the deadline: 2% vs 0% (+1 pts)
+Score 0.126 vs 0.440 (margin 0.314; lower is better).
+
+vs cheapest: this IS the cheapest option.
+vs fastest (R-S005-4): it would arrive 16.4d sooner and cost $10,805 more; it loses on the weighted trade-off under the critical profile.
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S006,critical,R-S006-3,True,Medium,1.0,0.002581,Near-tie: the runner-up is only 0.003 score points behind.,"Recommended: R-S006-3 via SIN > CMB > RTM (air+sea, 1 transshipment).
+Cost $7,398 | expected transit 9.6d (P50 9.3d, P90 10.4d) | 0% chance of missing the 42.6d hard deadline | route risk 0.34.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, fragile cargo.
+
+Why it beats the runner-up R-S006-4:
+  - better cost: $7,398 vs $7,457 (-0.8%)
+Trade-off accepted: none against R-S006-4 — it is at least as good on every criterion.
+Score 0.197 vs 0.200 (margin 0.003; lower is better).
+
+vs cheapest (R-S006-1): we pay $4,648 more (+169.1%); in exchange it arrives 20.0d sooner on average, route risk falls from 0.64 to 0.34.
+  The cheapest option is not allowed: geopolitical risk 0.78 exceeds the fragile cargo limit 0.65.
+vs fastest (R-S006-4): it arrives at effectively the same time and cost $59 more; it loses on the weighted trade-off under the critical profile.
+
+Eliminated options:
+  - R-S006-1: geopolitical risk 0.78 exceeds the fragile cargo limit 0.65
+
+Confidence: Medium — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: Near-tie: the runner-up is only 0.003 score points behind."
+S007,critical,R-S007-1,True,High,0.988,0.051156,,"Recommended: R-S007-1 via MUM > SIN > LAX (sea, 1 transshipment).
+Cost $4,577 | expected transit 30.2d (P50 29.5d, P90 32.1d) | 0% chance of missing the 41.7d hard deadline | route risk 0.40.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, fragile cargo.
+
+Why it beats the runner-up R-S007-3:
+  - better cost: $4,577 vs $9,564 (-52.1%)
+Trade-off accepted:
+  - worse expected transit time: 30.2d vs 11.5d (+18.8d)
+Score 0.149 vs 0.200 (margin 0.051; lower is better).
+
+vs cheapest (R-S007-2): we pay $884 more (+23.9%); in exchange deadline-miss risk falls from 1% to 0%, it arrives 4.9d sooner on average, route risk falls from 0.45 to 0.40.
+vs fastest (R-S007-3): it would arrive 18.8d sooner and cost $4,987 more; it loses on the weighted trade-off under the critical profile.
+
+Confidence: High — the same route wins in 99% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S008,critical,R-S008-2,True,High,1.0,,,"Recommended: R-S008-2 via CMB > CPT > HAM (sea, 1 transshipment).
+Cost $21,294 | expected transit 29.7d (P50 29.4d, P90 30.8d) | 0% chance of missing the 40.0d hard deadline | route risk 0.37.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, high_value cargo.
+
+vs cheapest (R-S008-1): we pay $7,424 more (+53.5%); in exchange route risk falls from 0.66 to 0.37.
+  The cheapest option is not allowed: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65.
+vs fastest (R-S008-3): it would arrive 1.5d sooner and cost $6,486 less, but it is not allowed (geopolitical risk 0.78 exceeds the high_value cargo limit 0.65); it carries 0.78 geopolitical risk vs 0.28.
+
+Eliminated options:
+  - R-S008-1: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+  - R-S008-3: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+  - R-S008-4: geopolitical risk 0.81 exceeds the high_value cargo limit 0.65
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S009,critical,R-S009-2,True,High,1.0,,,"Recommended: R-S009-2 via MUM > SIN > LAX > NYC (rail+sea, 2 transshipments).
+Cost $12,257 | expected transit 41.2d (P50 40.3d, P90 43.0d) | 0% chance of missing the 65.9d hard deadline | route risk 0.40.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — budget priority, high_value cargo.
+
+vs cheapest (R-S009-1): we pay $3,015 more (+32.6%); in exchange route risk falls from 0.66 to 0.40.
+  The cheapest option is not allowed: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65.
+vs fastest (R-S009-1): it would arrive 3.0d sooner and cost $3,015 less, but it is not allowed (geopolitical risk 0.78 exceeds the high_value cargo limit 0.65); it carries 0.78 geopolitical risk vs 0.22.
+
+Eliminated options:
+  - R-S009-1: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+  - R-S009-3: cost $14,433 exceeds budget cap $12,869 by $1,563
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S010,standard,R-S010-4,False,High,1.0,,NON-COMPLIANT: no route satisfies all hard constraints; the least-violating option is shown and must be approved manually.,"Recommended: R-S010-4 via SIN > LAX > NYC > RTM > HAM (rail+sea, 3 transshipments).
+Cost $14,830 | expected transit 47.4d (P50 46.6d, P90 49.1d) | 100% chance of missing the 23.3d hard deadline | route risk 0.32.
+Weighting profile: standard (cost 0.35, time 0.25, reliability 0.25, risk 0.15) — standard priority, general cargo.
+
+vs cheapest (R-S010-3): we pay $3,663 more (+32.8%); in exchange route risk falls from 0.64 to 0.32.
+  The cheapest option is not allowed: P90 transit 36.4d exceeds hard deadline 23.3d by 13.1d.
+vs fastest (R-S010-1): it would arrive 17.4d sooner and cost $2,750 less, but it is not allowed (P90 transit 33.3d exceeds hard deadline 23.3d by 10.0d); it carries 0.78 geopolitical risk vs 0.10.
+
+Eliminated options:
+  - R-S010-1: P90 transit 33.3d exceeds hard deadline 23.3d by 10.0d; cost $12,080 exceeds budget cap $8,934 by $3,146; geopolitical risk 0.78 exceeds the general cargo limit 0.20
+  - R-S010-2: P90 transit 41.3d exceeds hard deadline 23.3d by 18.0d; cost $15,401 exceeds budget cap $8,934 by $6,467; geopolitical risk 0.28 exceeds the general cargo limit 0.20
+  - R-S010-3: P90 transit 36.4d exceeds hard deadline 23.3d by 13.1d; cost $11,167 exceeds budget cap $8,934 by $2,233; geopolitical risk 0.78 exceeds the general cargo limit 0.20
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: NON-COMPLIANT: no route satisfies all hard constraints; the least-violating option is shown and must be approved manually.
+  Failed constraints on the selected option: P90 transit 49.1d exceeds hard deadline 23.3d by 25.8d; cost $14,830 exceeds budget cap $8,934 by $5,896"
+S011,standard,R-S011-4,True,Medium,0.892,0.048593,Near-tie: the runner-up is only 0.049 score points behind.,"Recommended: R-S011-4 via MUM > JEA > RTM (air+sea, 1 transshipment).
+Cost $15,620 | expected transit 7.5d (P50 7.2d, P90 8.2d) | 0% chance of missing the 42.0d soft deadline | route risk 0.38.
+Weighting profile: standard (cost 0.35, time 0.25, reliability 0.25, risk 0.15) — standard priority, general cargo.
+
+Why it beats the runner-up R-S011-3:
+  - better expected transit time: 7.5d vs 32.0d (-24.6d)
+  - better route risk (congestion + geopolitical): 0.38 vs 0.39 (-0.01)
+Trade-off accepted:
+  - worse cost: $15,620 vs $9,946 (+57.0%)
+Score 0.350 vs 0.399 (margin 0.049; lower is better).
+
+vs cheapest (R-S011-2): we pay $9,692 more (+163.5%); in exchange it arrives 22.8d sooner on average, route risk falls from 0.65 to 0.38.
+vs fastest: this IS the fastest option.
+
+Confidence: Medium — the same route wins in 89% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: Near-tie: the runner-up is only 0.049 score points behind."
+S012,critical,R-S012-3,True,High,1.0,,,"Recommended: R-S012-3 via MUM > JEA > HAM (air+sea, 1 transshipment).
+Cost $26,439 | expected transit 7.4d (P50 7.1d, P90 8.2d) | 2% chance of missing the 9.4d hard deadline | route risk 0.39.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — urgent priority, perishable cargo.
+
+vs cheapest (R-S012-2): we pay $16,368 more (+162.5%); in exchange deadline-miss risk falls from 100% to 2%, it arrives 24.2d sooner on average, route risk falls from 0.66 to 0.39.
+  The cheapest option is not allowed: P90 transit 35.6d exceeds hard deadline 9.4d by 26.2d.
+vs fastest: this IS the fastest option.
+
+Eliminated options:
+  - R-S012-1: P90 transit 31.4d exceeds hard deadline 9.4d by 22.0d
+  - R-S012-2: P90 transit 35.6d exceeds hard deadline 9.4d by 26.2d; geopolitical risk 0.78 exceeds the perishable cargo limit 0.65
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S013,budget,R-S013-5,True,High,1.0,0.163262,High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit).,"Recommended: R-S013-5 via CMB > JEA > JED > PSD > RTM (sea, 3 transshipments).
+Cost $12,472 | expected transit 32.4d (P50 32.0d, P90 36.8d) | 2% chance of missing the 42.2d soft deadline | route risk 0.64.
+Weighting profile: budget (cost 0.60, time 0.10, reliability 0.15, risk 0.15) — budget priority, general cargo.
+
+Why it beats the runner-up R-S013-2:
+  - better cost: $12,472 vs $14,191 (-12.1%)
+Trade-off accepted:
+  - worse risk of missing the deadline: 2% vs 0% (+2 pts)
+  - worse expected transit time: 32.4d vs 26.8d (+5.6d)
+Score 0.287 vs 0.450 (margin 0.163; lower is better).
+
+vs cheapest: this IS the cheapest option.
+vs fastest (R-S013-4): it would arrive 29.9d sooner and cost $35,704 more, but it is not allowed (cost $48,175 exceeds budget cap $15,803 by $32,373).
+
+Eliminated options:
+  - R-S013-3: cost $19,643 exceeds budget cap $15,803 by $3,841
+  - R-S013-4: cost $48,175 exceeds budget cap $15,803 by $32,373
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit)."
+S014,standard,R-S014-3,True,High,0.988,0.125,,"Recommended: R-S014-3 via SHA > PUS > LAX > NYC > RTM (rail+sea, 3 transshipments).
+Cost $11,005 | expected transit 40.9d (P50 40.0d, P90 42.6d) | 0% chance of missing the 51.0d soft deadline | route risk 0.44.
+Weighting profile: standard (cost 0.35, time 0.25, reliability 0.25, risk 0.15) — standard priority, general cargo.
+
+Why it beats the runner-up R-S014-2:
+  - better cost: $11,005 vs $13,229 (-16.8%)
+  - better route risk (congestion + geopolitical): 0.44 vs 0.47 (-0.03)
+Trade-off accepted:
+  - worse expected transit time: 40.9d vs 37.4d (+3.4d)
+Score 0.375 vs 0.500 (margin 0.125; lower is better).
+
+vs cheapest: this IS the cheapest option.
+vs fastest (R-S014-2): it would arrive 3.4d sooner and cost $2,224 more; it loses on the weighted trade-off under the standard profile.
+
+Eliminated options:
+  - R-S014-4: dominated by R-S014-3, which is no worse on cost, time, reliability and risk — and better on at least one.
+
+Confidence: High — the same route wins in 99% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S015,critical,R-S015-1,True,Medium,0.83,0.051787,,"Recommended: R-S015-1 via SHA > LAX (sea, 0 transshipments).
+Cost $15,053 | expected transit 14.5d (P50 14.0d, P90 16.3d) | 0% chance of missing the 26.1d soft deadline | route risk 0.52.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — budget priority, perishable cargo.
+
+Why it beats the runner-up R-S015-2:
+  - better risk of missing the deadline: 0% vs 100% (-100 pts)
+  - better expected transit time: 14.5d vs 28.5d (-13.9d)
+  - better cost: $15,053 vs $18,670 (-19.4%)
+Trade-off accepted:
+  - worse route risk (congestion + geopolitical): 0.52 vs 0.45 (+0.06)
+Score 0.420 vs 0.472 (margin 0.052; lower is better).
+
+vs cheapest: this IS the cheapest option.
+vs fastest (R-S015-4): it would arrive 12.1d sooner and cost $33,003 more; it loses on the weighted trade-off under the critical profile.
+
+Confidence: Medium — the same route wins in 83% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S016,urgent,R-S016-1,True,Medium,0.994,0.044983,Near-tie: the runner-up is only 0.045 score points behind. | High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit).,"Recommended: R-S016-1 via SIN > CMB > JEA > PSD > RTM (sea, 3 transshipments).
+Cost $11,260 | expected transit 33.7d (P50 33.2d, P90 36.3d) | 2% chance of missing the 39.9d soft deadline | route risk 0.62.
+Weighting profile: urgent (cost 0.15, time 0.40, reliability 0.30, risk 0.15) — urgent priority, general cargo.
+
+Why it beats the runner-up R-S016-2:
+  - better expected transit time: 33.7d vs 36.4d (-2.7d)
+  - better cost: $11,260 vs $14,289 (-21.2%)
+Trade-off accepted:
+  - worse route risk (congestion + geopolitical): 0.62 vs 0.35 (+0.27)
+Score 0.152 vs 0.197 (margin 0.045; lower is better).
+
+vs cheapest: this IS the cheapest option.
+vs fastest: this IS the fastest option.
+
+Confidence: Medium — the same route wins in 99% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: Near-tie: the runner-up is only 0.045 score points behind.
+WARNING: High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit)."
+S017,standard,R-S017-1,True,High,1.0,0.138524,,"Recommended: R-S017-1 via MUM > SIN > LAX (sea, 1 transshipment).
+Cost $23,060 | expected transit 29.6d (P50 28.9d, P90 31.2d) | 0% chance of missing the 40.6d soft deadline | route risk 0.40.
+Weighting profile: standard (cost 0.35, time 0.25, reliability 0.25, risk 0.15) — standard priority, general cargo.
+
+Why it beats the runner-up R-S017-3:
+  - better cost: $23,060 vs $53,217 (-56.7%)
+Trade-off accepted:
+  - worse expected transit time: 29.6d vs 11.8d (+17.8d)
+Score 0.211 vs 0.350 (margin 0.139; lower is better).
+
+vs cheapest (R-S017-2): we pay $2,749 more (+13.5%); in exchange deadline-miss risk falls from 2% to 0%, it arrives 6.6d sooner on average, route risk falls from 0.45 to 0.40.
+vs fastest (R-S017-3): it would arrive 17.8d sooner and cost $30,157 more; it loses on the weighted trade-off under the standard profile.
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S018,critical,R-S018-3,True,High,1.0,,,"Recommended: R-S018-3 via CMB > CPT > HAM (sea, 1 transshipment).
+Cost $7,914 | expected transit 29.3d (P50 29.0d, P90 30.4d) | 1% chance of missing the 32.8d hard deadline | route risk 0.37.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — budget priority, high_value cargo.
+
+vs cheapest (R-S018-2): we pay $2,274 more (+40.3%); in exchange deadline-miss risk falls from 2% to 1%, route risk falls from 0.66 to 0.37.
+  The cheapest option is not allowed: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65.
+vs fastest (R-S018-1): it would arrive 6.9d sooner and cost $1,254 less, but it is not allowed (geopolitical risk 0.78 exceeds the high_value cargo limit 0.65); it carries 0.78 geopolitical risk vs 0.28.
+
+Eliminated options:
+  - R-S018-1: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+  - R-S018-2: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+  - R-S018-4: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+  - R-S018-5: P90 transit 36.3d exceeds hard deadline 32.8d by 3.5d; geopolitical risk 0.81 exceeds the high_value cargo limit 0.65
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S019,critical,R-S019-3,True,High,1.0,,,"Recommended: R-S019-3 via MUM > SIN > LAX > NYC (rail+sea, 2 transshipments).
+Cost $18,856 | expected transit 41.8d (P50 41.0d, P90 43.9d) | 0% chance of missing the 67.2d soft deadline | route risk 0.40.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — budget priority, high_value cargo.
+
+vs cheapest (R-S019-1): we pay $4,812 more (+34.3%); in exchange route risk falls from 0.66 to 0.40.
+  The cheapest option is not allowed: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65.
+vs fastest (R-S019-1): it would arrive 2.7d sooner and cost $4,812 less, but it is not allowed (geopolitical risk 0.78 exceeds the high_value cargo limit 0.65); it carries 0.78 geopolitical risk vs 0.22.
+
+Eliminated options:
+  - R-S019-1: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+  - R-S019-2: dominated by R-S019-3, which is no worse on cost, time, reliability and risk — and better on at least one.
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S020,standard,R-S020-1,True,High,1.0,,High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit).,"Recommended: R-S020-1 via SIN > CMB > PSD > HAM (sea, 2 transshipments).
+Cost $16,145 | expected transit 31.8d (P50 30.8d, P90 35.2d) | 3% chance of missing the 38.5d hard deadline | route risk 0.64.
+Weighting profile: standard (cost 0.35, time 0.25, reliability 0.25, risk 0.15) — standard priority, general cargo.
+
+vs cheapest (R-S020-2): we pay $2,644 more (+19.6%); in exchange deadline-miss risk falls from 19% to 3%, it arrives 4.7d sooner on average.
+  The cheapest option is not allowed: P90 transit 39.7d exceeds hard deadline 38.5d by 1.2d.
+vs fastest: this IS the fastest option.
+
+Eliminated options:
+  - R-S020-2: P90 transit 39.7d exceeds hard deadline 38.5d by 1.2d
+  - R-S020-3: P90 transit 51.0d exceeds hard deadline 38.5d by 12.5d
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit)."
+S021,standard,R-S021-5,True,High,0.96,0.083044,,"Recommended: R-S021-5 via MUM > JEA > RTM (air+sea, 1 transshipment).
+Cost $19,767 | expected transit 7.7d (P50 7.5d, P90 8.4d) | 0% chance of missing the 37.0d hard deadline | route risk 0.38.
+Weighting profile: standard (cost 0.35, time 0.25, reliability 0.25, risk 0.15) — standard priority, general cargo.
+
+Why it beats the runner-up R-S021-2:
+  - better expected transit time: 7.7d vs 27.3d (-19.6d)
+  - better route risk (congestion + geopolitical): 0.38 vs 0.67 (-0.29)
+Trade-off accepted:
+  - worse cost: $19,767 vs $8,482 (+133.0%)
+Score 0.350 vs 0.433 (margin 0.083; lower is better).
+
+vs cheapest (R-S021-1): we pay $11,622 more (+142.7%); in exchange it arrives 17.6d sooner on average, route risk falls from 0.65 to 0.38.
+vs fastest: this IS the fastest option.
+
+Eliminated options:
+  - R-S021-4: P90 transit 38.1d exceeds hard deadline 37.0d by 1.1d
+
+Confidence: High — the same route wins in 96% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S022,critical,R-S022-1,True,High,1.0,0.202626,High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit).,"Recommended: R-S022-1 via MUM > JEA > PSD > HAM (sea, 2 transshipments).
+Cost $14,505 | expected transit 25.3d (P50 24.5d, P90 28.0d) | 0% chance of missing the 36.4d hard deadline | route risk 0.66.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, high_value cargo.
+
+Why it beats the runner-up R-S022-4:
+  - better risk of missing the deadline: 0% vs 5% (-4 pts)
+  - better expected transit time: 25.3d vs 32.3d (-7.0d)
+Trade-off accepted:
+  - worse cost: $14,505 vs $13,627 (+6.4%)
+Score 0.200 vs 0.403 (margin 0.203; lower is better).
+
+vs cheapest (R-S022-3): we pay $1,130 more (+8.4%); in exchange deadline-miss risk falls from 7% to 0%, it arrives 5.5d sooner on average.
+vs fastest: this IS the fastest option.
+
+Eliminated options:
+  - R-S022-2: dominated by R-S022-1, which is no worse on cost, time, reliability and risk — and better on at least one.
+  - R-S022-5: P90 transit 42.1d exceeds hard deadline 36.4d by 5.7d
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit)."
+S023,critical,R-S023-3,True,High,1.0,,,"Recommended: R-S023-3 via CMB > CPT > RTM (sea, 1 transshipment).
+Cost $19,716 | expected transit 29.2d (P50 28.8d, P90 30.4d) | 0% chance of missing the 41.5d soft deadline | route risk 0.36.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — budget priority, high_value cargo.
+
+vs cheapest (R-S023-2): we pay $6,137 more (+45.2%); in exchange route risk falls from 0.63 to 0.36.
+  The cheapest option is not allowed: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65.
+vs fastest (R-S023-4): it would arrive 26.5d sooner and cost $23,423 more, but it is not allowed (cost $43,139 exceeds budget cap $20,702 by $22,437).
+
+Eliminated options:
+  - R-S023-1: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+  - R-S023-2: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+  - R-S023-4: cost $43,139 exceeds budget cap $20,702 by $22,437
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S024,urgent,R-S024-1,True,Medium,1.0,0.3,Near-tie: R-S024-4 is within 5% of the chosen route on every criterion; either is defensible.,"Recommended: R-S024-1 via SHA > RTM (sea, 0 transshipments).
+Cost $26,932 | expected transit 28.0d (P50 27.3d, P90 30.2d) | 2% chance of missing the 33.2d hard deadline | route risk 0.45.
+Weighting profile: urgent (cost 0.15, time 0.40, reliability 0.30, risk 0.15) — urgent priority, general cargo.
+
+Why it beats the runner-up R-S024-4:
+  - it wins on the weighted total, with no single dominant criterion.
+Trade-off accepted: none against R-S024-4 — it is at least as good on every criterion.
+Score 0.000 vs 0.300 (margin 0.300; lower is better).
+
+vs cheapest (R-S024-2): we pay $11,721 more (+77.1%); in exchange deadline-miss risk falls from 100% to 2%, it arrives 20.8d sooner on average, route risk falls from 0.67 to 0.45.
+  The cheapest option is not allowed: P90 transit 52.4d exceeds hard deadline 33.2d by 19.2d.
+vs fastest (R-S024-4): it would arrive 0.1d sooner and cost $215 more; it loses on the weighted trade-off under the urgent profile.
+
+Eliminated options:
+  - R-S024-2: P90 transit 52.4d exceeds hard deadline 33.2d by 19.2d
+  - R-S024-3: P90 transit 43.8d exceeds hard deadline 33.2d by 10.6d
+
+Confidence: Medium — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: Near-tie: R-S024-4 is within 5% of the chosen route on every criterion; either is defensible."
+S025,critical,R-S025-2,True,High,1.0,0.296824,,"Recommended: R-S025-2 via SHA > PUS > LAX (sea, 1 transshipment).
+Cost $14,586 | expected transit 19.0d (P50 18.5d, P90 20.3d) | 4% chance of missing the 21.4d soft deadline | route risk 0.46.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, fragile cargo.
+
+Why it beats the runner-up R-S025-1:
+  - better route risk (congestion + geopolitical): 0.46 vs 0.52 (-0.06)
+  - better cost: $14,586 vs $16,118 (-9.5%)
+Trade-off accepted:
+  - worse expected transit time: 19.0d vs 15.0d (+3.9d)
+  - worse risk of missing the deadline: 4% vs 0% (+4 pts)
+Score 0.140 vs 0.437 (margin 0.297; lower is better).
+
+vs cheapest: this IS the cheapest option.
+vs fastest (R-S025-4): it would arrive 16.6d sooner and cost $36,107 more; it loses on the weighted trade-off under the critical profile.
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S026,critical,R-S026-4,True,Medium,0.83,0.0563,,"Recommended: R-S026-4 via SIN > CMB > RTM (air+sea, 1 transshipment).
+Cost $29,070 | expected transit 9.5d (P50 9.2d, P90 10.3d) | 0% chance of missing the 47.2d soft deadline | route risk 0.34.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, high_value cargo.
+
+Why it beats the runner-up R-S026-3:
+  - better risk of missing the deadline: 0% vs 7% (-7 pts)
+  - better expected transit time: 9.5d vs 44.8d (-35.2d)
+Trade-off accepted:
+  - worse route risk (congestion + geopolitical): 0.34 vs 0.32 (+0.02)
+  - worse cost: $29,070 vs $15,669 (+85.5%)
+Score 0.414 vs 0.470 (margin 0.056; lower is better).
+
+vs cheapest (R-S026-1): we pay $18,251 more (+168.7%); in exchange it arrives 23.7d sooner on average, route risk falls from 0.62 to 0.34.
+  The cheapest option is not allowed: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65.
+vs fastest: this IS the fastest option.
+
+Eliminated options:
+  - R-S026-1: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+  - R-S026-5: geopolitical risk 0.81 exceeds the high_value cargo limit 0.65
+
+Confidence: Medium — the same route wins in 83% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S027,critical,R-S027-1,True,High,1.0,0.080346,,"Recommended: R-S027-1 via MUM > CMB > SIN > LAX (sea, 2 transshipments).
+Cost $9,237 | expected transit 31.0d (P50 30.3d, P90 32.8d) | 0% chance of missing the 42.7d hard deadline | route risk 0.40.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, high_value cargo.
+
+Why it beats the runner-up R-S027-3:
+  - better cost: $9,237 vs $25,643 (-64.0%)
+Trade-off accepted:
+  - worse expected transit time: 31.0d vs 12.3d (+18.8d)
+Score 0.122 vs 0.202 (margin 0.080; lower is better).
+
+vs cheapest (R-S027-2): we pay $174 more (+1.9%); in exchange it arrives 4.7d sooner on average, route risk falls from 0.45 to 0.40.
+vs fastest (R-S027-3): it would arrive 18.8d sooner and cost $16,406 more; it loses on the weighted trade-off under the critical profile.
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S028,critical,R-S028-3,True,High,1.0,,,"Recommended: R-S028-3 via CMB > CPT > HAM (sea, 1 transshipment).
+Cost $2,102 | expected transit 29.9d (P50 29.6d, P90 30.9d) | 0% chance of missing the 36.7d soft deadline | route risk 0.37.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, high_value cargo.
+
+vs cheapest (R-S028-2): we pay $791 more (+60.3%); in exchange deadline-miss risk falls from 1% to 0%, route risk falls from 0.66 to 0.37.
+  The cheapest option is not allowed: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65.
+vs fastest (R-S028-1): it would arrive 5.5d sooner and cost $581 less, but it is not allowed (geopolitical risk 0.78 exceeds the high_value cargo limit 0.65); it carries 0.78 geopolitical risk vs 0.28.
+
+Eliminated options:
+  - R-S028-1: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+  - R-S028-2: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+  - R-S028-4: geopolitical risk 0.78 exceeds the high_value cargo limit 0.65
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S029,critical,R-S029-3,True,High,1.0,,,"Recommended: R-S029-3 via MUM > SIN > LAX > NYC (rail+sea, 2 transshipments).
+Cost $23,142 | expected transit 41.8d (P50 40.9d, P90 43.7d) | 8% chance of missing the 44.2d hard deadline | route risk 0.40.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — urgent priority, perishable cargo.
+
+vs cheapest (R-S029-1): we pay $6,059 more (+35.5%); in exchange route risk falls from 0.66 to 0.40.
+  The cheapest option is not allowed: geopolitical risk 0.78 exceeds the perishable cargo limit 0.65.
+vs fastest (R-S029-1): it would arrive 4.3d sooner and cost $6,059 less, but it is not allowed (geopolitical risk 0.78 exceeds the perishable cargo limit 0.65); it carries 0.78 geopolitical risk vs 0.22.
+
+Eliminated options:
+  - R-S029-1: geopolitical risk 0.78 exceeds the perishable cargo limit 0.65
+  - R-S029-2: P90 transit 44.7d exceeds hard deadline 44.2d by 0.5d
+  - R-S029-4: P90 transit 53.0d exceeds hard deadline 44.2d by 8.8d
+  - R-S029-5: P90 transit 48.4d exceeds hard deadline 44.2d by 4.2d; geopolitical risk 0.81 exceeds the perishable cargo limit 0.65
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S030,critical,R-S030-4,False,High,1.0,,NON-COMPLIANT: no route satisfies all hard constraints; the least-violating option is shown and must be approved manually.,"Recommended: R-S030-4 via SIN > LAX > NYC > RTM > HAM (rail+sea, 3 transshipments).
+Cost $13,095 | expected transit 46.8d (P50 46.0d, P90 48.8d) | 100% chance of missing the 24.2d hard deadline | route risk 0.32.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, fragile cargo.
+
+vs cheapest (R-S030-3): we pay $2,975 more (+29.4%); in exchange route risk falls from 0.64 to 0.32.
+  The cheapest option is not allowed: P90 transit 39.3d exceeds hard deadline 24.2d by 15.1d.
+vs fastest (R-S030-1): it would arrive 15.6d sooner and cost $1,978 less, but it is not allowed (P90 transit 34.5d exceeds hard deadline 24.2d by 10.3d); it carries 0.78 geopolitical risk vs 0.10.
+
+Eliminated options:
+  - R-S030-1: P90 transit 34.5d exceeds hard deadline 24.2d by 10.3d; cost $11,118 exceeds budget cap $8,096 by $3,021; geopolitical risk 0.78 exceeds the fragile cargo limit 0.20
+  - R-S030-2: P90 transit 39.8d exceeds hard deadline 24.2d by 15.6d; cost $13,699 exceeds budget cap $8,096 by $5,603; geopolitical risk 0.28 exceeds the fragile cargo limit 0.20
+  - R-S030-3: P90 transit 39.3d exceeds hard deadline 24.2d by 15.1d; cost $10,120 exceeds budget cap $8,096 by $2,024; geopolitical risk 0.78 exceeds the fragile cargo limit 0.20
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: NON-COMPLIANT: no route satisfies all hard constraints; the least-violating option is shown and must be approved manually.
+  Failed constraints on the selected option: P90 transit 48.8d exceeds hard deadline 24.2d by 24.6d; cost $13,095 exceeds budget cap $8,096 by $4,999"
+S031,standard,R-S031-4,True,High,1.0,0.19375,,"Recommended: R-S031-4 via MUM > JEA > RTM (air+sea, 1 transshipment).
+Cost $38,137 | expected transit 7.4d (P50 7.1d, P90 8.3d) | 0% chance of missing the 35.4d hard deadline | route risk 0.38.
+Weighting profile: standard (cost 0.35, time 0.25, reliability 0.25, risk 0.15) — standard priority, general cargo.
+
+Why it beats the runner-up R-S031-3:
+  - better expected transit time: 7.4d vs 30.5d (-23.1d)
+  - better route risk (congestion + geopolitical): 0.38 vs 0.39 (-0.01)
+Trade-off accepted:
+  - worse cost: $38,137 vs $23,209 (+64.3%)
+Score 0.350 vs 0.544 (margin 0.194; lower is better).
+
+vs cheapest (R-S031-2): we pay $25,367 more (+198.6%); in exchange deadline-miss risk falls from 11% to 0%, it arrives 24.2d sooner on average, route risk falls from 0.65 to 0.38.
+  The cheapest option is not allowed: P90 transit 35.7d exceeds hard deadline 35.4d by 0.3d.
+vs fastest: this IS the fastest option.
+
+Eliminated options:
+  - R-S031-2: P90 transit 35.7d exceeds hard deadline 35.4d by 0.3d
+  - R-S031-5: P90 transit 43.2d exceeds hard deadline 35.4d by 7.8d
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S032,critical,R-S032-3,True,Medium,0.932,0.044651,Near-tie: the runner-up is only 0.045 score points behind.,"Recommended: R-S032-3 via MUM > CPT > HAM (sea, 1 transshipment).
+Cost $22,191 | expected transit 29.8d (P50 29.5d, P90 30.9d) | 0% chance of missing the 39.3d hard deadline | route risk 0.40.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, fragile cargo.
+
+Why it beats the runner-up R-S032-4:
+  - better cost: $22,191 vs $30,717 (-27.8%)
+Trade-off accepted:
+  - worse expected transit time: 29.8d vs 7.8d (+22.1d)
+Score 0.150 vs 0.195 (margin 0.045; lower is better).
+
+vs cheapest (R-S032-1): we pay $8,431 more (+61.3%); in exchange route risk falls from 0.66 to 0.40.
+  The cheapest option is not allowed: geopolitical risk 0.78 exceeds the fragile cargo limit 0.65.
+vs fastest (R-S032-5): it would arrive 22.1d sooner and cost $8,772 more; it loses on the weighted trade-off under the critical profile.
+
+Eliminated options:
+  - R-S032-1: geopolitical risk 0.78 exceeds the fragile cargo limit 0.65
+  - R-S032-2: geopolitical risk 0.78 exceeds the fragile cargo limit 0.65
+
+Confidence: Medium — the same route wins in 93% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: Near-tie: the runner-up is only 0.045 score points behind."
+S033,budget,R-S033-3,True,High,1.0,0.2,High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit).,"Recommended: R-S033-3 via CMB > JEA > JED > PSD > RTM (sea, 3 transshipments).
+Cost $12,488 | expected transit 31.8d (P50 31.1d, P90 35.4d) | 0% chance of missing the 50.2d hard deadline | route risk 0.64.
+Weighting profile: budget (cost 0.60, time 0.10, reliability 0.15, risk 0.15) — budget priority, general cargo.
+
+Why it beats the runner-up R-S033-1:
+  - better cost: $12,488 vs $21,437 (-41.7%)
+Trade-off accepted:
+  - worse route risk (congestion + geopolitical): 0.64 vs 0.36 (+0.27)
+  - worse expected transit time: 31.8d vs 30.1d (+1.7d)
+Score 0.400 vs 0.600 (margin 0.200; lower is better).
+
+vs cheapest: this IS the cheapest option.
+vs fastest (R-S033-2): it would arrive 29.2d sooner and cost $36,126 more, but it is not allowed (cost $48,613 exceeds budget cap $22,509 by $26,105).
+
+Eliminated options:
+  - R-S033-2: cost $48,613 exceeds budget cap $22,509 by $26,105
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit)."
+S034,urgent,R-S034-2,True,High,1.0,0.4,,"Recommended: R-S034-2 via SHA > LAX > NYC > RTM (rail+sea, 2 transshipments).
+Cost $8,566 | expected transit 39.5d (P50 38.7d, P90 41.3d) | 1% chance of missing the 45.4d hard deadline | route risk 0.47.
+Weighting profile: urgent (cost 0.15, time 0.40, reliability 0.30, risk 0.15) — urgent priority, general cargo.
+
+Why it beats the runner-up R-S034-3:
+  - better expected transit time: 39.5d vs 40.5d (-1.0d)
+Trade-off accepted:
+  - worse route risk (congestion + geopolitical): 0.47 vs 0.44 (+0.03)
+  - worse cost: $8,566 vs $7,855 (+9.1%)
+Score 0.300 vs 0.700 (margin 0.400; lower is better).
+
+vs cheapest (R-S034-1): we pay $2,138 more (+33.3%); in exchange deadline-miss risk falls from 100% to 1%, it arrives 10.2d sooner on average, route risk falls from 0.67 to 0.47.
+  The cheapest option is not allowed: P90 transit 52.8d exceeds hard deadline 45.4d by 7.4d.
+vs fastest: this IS the fastest option.
+
+Eliminated options:
+  - R-S034-1: P90 transit 52.8d exceeds hard deadline 45.4d by 7.4d
+  - R-S034-4: P90 transit 63.1d exceeds hard deadline 45.4d by 17.7d
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S035,critical,R-S035-4,True,High,1.0,,,"Recommended: R-S035-4 via SHA > LAX (air, 0 transshipments).
+Cost $54,380 | expected transit 2.4d (P50 2.3d, P90 2.3d) | 8% chance of missing the 2.7d hard deadline | route risk 0.52.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — urgent priority, high_value cargo.
+
+vs cheapest (R-S035-2): we pay $39,836 more (+273.9%); in exchange deadline-miss risk falls from 100% to 8%, it arrives 15.9d sooner on average.
+  The cheapest option is not allowed: P90 transit 19.5d exceeds hard deadline 2.7d by 16.8d.
+vs fastest: this IS the fastest option.
+
+Eliminated options:
+  - R-S035-1: P90 transit 16.9d exceeds hard deadline 2.7d by 14.2d
+  - R-S035-2: P90 transit 19.5d exceeds hard deadline 2.7d by 16.8d
+  - R-S035-3: P90 transit 30.2d exceeds hard deadline 2.7d by 27.5d
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S036,standard,R-S036-1,True,Low,0.512,0.0,Near-tie: the runner-up is only 0.000 score points behind. | High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit). | Close call — review manually before booking.,"Recommended: R-S036-1 via SIN > CMB > PSD > RTM (sea, 2 transshipments).
+Cost $1,613 | expected transit 30.6d (P50 28.8d, P90 33.7d) | 0% chance of missing the 43.9d hard deadline | route risk 0.64.
+Weighting profile: standard (cost 0.35, time 0.25, reliability 0.25, risk 0.15) — standard priority, general cargo.
+
+Why it beats the runner-up R-S036-2:
+  - better expected transit time: 30.6d vs 33.7d (-3.0d)
+  - better risk of missing the deadline: 0% vs 1% (-0 pts)
+Trade-off accepted:
+  - worse cost: $1,613 vs $1,425 (+13.2%)
+  - worse route risk (congestion + geopolitical): 0.64 vs 0.62 (+0.02)
+Score 0.500 vs 0.500 (margin 0.000; lower is better).
+
+vs cheapest (R-S036-2): we pay $188 more (+13.2%); in exchange it arrives 3.0d sooner on average.
+vs fastest: this IS the fastest option.
+
+Eliminated options:
+  - R-S036-3: P90 transit 45.7d exceeds hard deadline 43.9d by 1.8d
+  - R-S036-4: P90 transit 44.3d exceeds hard deadline 43.9d by 0.4d
+
+Confidence: Low — the same route wins in 51% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: Near-tie: the runner-up is only 0.000 score points behind.
+WARNING: High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit).
+WARNING: Close call — review manually before booking."
+S037,critical,R-S037-1,True,High,0.96,0.05,,"Recommended: R-S037-1 via MUM > SIN > LAX (sea, 1 transshipment).
+Cost $18,666 | expected transit 28.2d (P50 27.5d, P90 30.0d) | 0% chance of missing the 39.1d hard deadline | route risk 0.40.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, fragile cargo.
+
+Why it beats the runner-up R-S037-3:
+  - better cost: $18,666 vs $42,051 (-55.6%)
+Trade-off accepted:
+  - worse expected transit time: 28.2d vs 11.9d (+16.3d)
+Score 0.150 vs 0.200 (margin 0.050; lower is better).
+
+vs cheapest (R-S037-2): we pay $3,970 more (+27.0%); in exchange deadline-miss risk falls from 10% to 0%, it arrives 8.6d sooner on average, route risk falls from 0.45 to 0.40.
+  The cheapest option is not allowed: P90 transit 39.1d exceeds hard deadline 39.1d by 0.0d.
+vs fastest (R-S037-3): it would arrive 16.3d sooner and cost $23,385 more; it loses on the weighted trade-off under the critical profile.
+
+Eliminated options:
+  - R-S037-2: P90 transit 39.1d exceeds hard deadline 39.1d by 0.0d
+  - R-S037-4: P90 transit 46.8d exceeds hard deadline 39.1d by 7.7d
+
+Confidence: High — the same route wins in 96% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S038,critical,R-S038-2,True,High,1.0,0.102885,High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit).,"Recommended: R-S038-2 via CMB > PSD > RTM > HAM (rail+sea, 2 transshipments).
+Cost $14,738 | expected transit 26.7d (P50 24.9d, P90 29.9d) | 1% chance of missing the 35.6d hard deadline | route risk 0.66.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — standard priority, perishable cargo.
+
+Why it beats the runner-up R-S038-3:
+  - better risk of missing the deadline: 1% vs 1% (-1 pts)
+  - better cost: $14,738 vs $15,651 (-5.8%)
+  - better expected transit time: 26.7d vs 27.1d (-0.4d)
+Trade-off accepted:
+  - worse route risk (congestion + geopolitical): 0.66 vs 0.63 (+0.02)
+Score 0.426 vs 0.529 (margin 0.103; lower is better).
+
+vs cheapest: this IS the cheapest option.
+vs fastest (R-S038-1): it would arrive 2.7d sooner and cost $2,321 more; it loses on the weighted trade-off under the critical profile.
+
+Eliminated options:
+  - R-S038-4: P90 transit 35.9d exceeds hard deadline 35.6d by 0.3d
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%.
+
+WARNING: High geopolitical exposure: the chosen route peaks at 0.78 risk (chokepoint transit)."
+S039,standard,R-S039-3,True,Medium,0.798,0.05,,"Recommended: R-S039-3 via MUM > SIN > LAX > NYC (rail+sea, 2 transshipments).
+Cost $12,008 | expected transit 40.2d (P50 39.3d, P90 42.1d) | 0% chance of missing the 54.7d soft deadline | route risk 0.40.
+Weighting profile: standard (cost 0.35, time 0.25, reliability 0.25, risk 0.15) — standard priority, general cargo.
+
+Why it beats the runner-up R-S039-1:
+  - better route risk (congestion + geopolitical): 0.40 vs 0.66 (-0.26)
+Trade-off accepted:
+  - worse cost: $12,008 vs $9,555 (+25.7%)
+Score 0.350 vs 0.400 (margin 0.050; lower is better).
+
+vs cheapest (R-S039-1): we pay $2,452 more (+25.7%); in exchange route risk falls from 0.66 to 0.40.
+vs fastest (R-S039-1): it would arrive 0.5d sooner and cost $2,452 less, but it carries 0.78 geopolitical risk vs 0.22.
+
+Eliminated options:
+  - R-S039-2: dominated by R-S039-3, which is no worse on cost, time, reliability and risk — and better on at least one.
+  - R-S039-4: dominated by R-S039-2, which is no worse on cost, time, reliability and risk — and better on at least one.
+  - R-S039-5: dominated by R-S039-1, which is no worse on cost, time, reliability and risk — and better on at least one.
+
+Confidence: Medium — the same route wins in 80% of 500 runs with every weight randomly perturbed by up to +/-20%."
+S040,critical,R-S040-2,True,High,1.0,,,"Recommended: R-S040-2 via SIN > CMB > CPT > HAM (sea, 2 transshipments).
+Cost $16,056 | expected transit 37.4d (P50 36.8d, P90 38.7d) | 1% chance of missing the 41.7d hard deadline | route risk 0.35.
+Weighting profile: critical (cost 0.20, time 0.15, reliability 0.30, risk 0.35) — budget priority, perishable cargo.
+
+vs cheapest (R-S040-3): we pay $4,254 more (+36.0%); in exchange deadline-miss risk falls from 2% to 1%, route risk falls from 0.64 to 0.35.
+  The cheapest option is not allowed: geopolitical risk 0.78 exceeds the perishable cargo limit 0.65.
+vs fastest (R-S040-1): it would arrive 5.1d sooner and cost $2,672 less, but it is not allowed (geopolitical risk 0.78 exceeds the perishable cargo limit 0.65); it carries 0.78 geopolitical risk vs 0.28.
+
+Eliminated options:
+  - R-S040-1: geopolitical risk 0.78 exceeds the perishable cargo limit 0.65
+  - R-S040-3: geopolitical risk 0.78 exceeds the perishable cargo limit 0.65
+  - R-S040-4: P90 transit 45.3d exceeds hard deadline 41.7d by 3.6d; geopolitical risk 0.81 exceeds the perishable cargo limit 0.65
+
+Confidence: High — the same route wins in 100% of 500 runs with every weight randomly perturbed by up to +/-20%."

@@ -1,0 +1,87 @@
+# RouteWise configuration.
+# Everything a logistics planner would want to tune lives here, not in code.
+
+# ---------------------------------------------------------------- weights ---
+# Four criteria, all lower-is-better:
+#   cost        total landed freight cost (USD)
+#   time        expected transit = base transit + delay_prob * delay_mean_days
+#   reliability P(arrive after deadline), from Monte Carlo
+#   risk        0.5 * congestion + 0.5 * geopolitical risk
+# Each profile's weights must sum to 1.0 (enforced by tests + loader).
+profiles:
+  urgent:
+    cost: 0.15
+    time: 0.40
+    reliability: 0.30
+    risk: 0.15
+  standard:
+    cost: 0.35
+    time: 0.25
+    reliability: 0.25
+    risk: 0.15
+  budget:
+    cost: 0.60
+    time: 0.10
+    reliability: 0.15
+    risk: 0.15
+  critical:
+    cost: 0.20
+    time: 0.15
+    reliability: 0.30
+    risk: 0.35
+  equal:            # used as baseline B4 in the evaluation harness
+    cost: 0.25
+    time: 0.25
+    reliability: 0.25
+    risk: 0.25
+
+# Cargo types that override the priority-derived profile with `critical`.
+critical_cargo_types: [perishable, fragile, high_value]
+
+# --------------------------------------------------------------- scoring ----
+scoring:
+  # If (max-min) < flat_spread_ratio * min for a criterion, that criterion is
+  # treated as flat (normalised to 0 for every route): tiny differences in an
+  # estimate should not decide a recommendation.
+  flat_spread_ratio: 0.02
+  # Score margin (winner vs runner-up) below this counts as a near-tie.
+  near_tie_margin: 0.05
+  # Winner and runner-up within this relative difference on EVERY raw
+  # criterion also counts as a near-tie (guards against min-max stretching).
+  raw_tie_ratio: 0.05
+
+# ----------------------------------------------------------- simulation -----
+simulation:
+  n_runs: 1000
+  seed: 42
+  # Shape of the lognormal delay duration. sigma controls right-skew of the
+  # tail; mean of the distribution is pinned to the leg/route delay_mean_days.
+  lognormal_sigma: 0.6
+
+# ---------------------------------------------------------- sensitivity -----
+sensitivity:
+  n_runs: 500
+  seed: 7
+  weight_noise: 0.20        # each weight * U(1-w, 1+w), then renormalised
+  delay_prob_noise: 0.20    # delay_prob * U(1-d, 1+d)
+  risk_noise: 0.10          # risk +/- this, absolute
+  confidence:
+    high_stability: 0.90
+    medium_stability: 0.70
+    high_margin: 0.05
+
+# ----------------------------------------------------------- constraints ----
+constraints:
+  # Which transit quantile is checked against a hard deadline.
+  hard_deadline_quantile: 90
+  # Max geopolitical risk defaults applied to critical cargo in the generator.
+  default_max_geo_risk: 0.65
+
+# ------------------------------------------------------------ evaluation ----
+evaluation:
+  # Independent money yardstick: expected landed cost =
+  #   freight + holding_rate_per_day * value * E[transit] + late_penalty_per_day * E[days late]
+  holding_rate_per_day: 0.0004      # 0.04% of cargo value per day (~14.6%/yr)
+  late_penalty_per_day_ratio: 0.002 # 0.2% of cargo value per day late
+  random_baseline_draws: 100
+  noise_experiment_sigma: 0.15
