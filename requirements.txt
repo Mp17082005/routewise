@@ -1,0 +1,8 @@
+numpy>=1.26
+pandas>=2.1
+pydantic>=2.6
+pyyaml>=6.0
+matplotlib>=3.8
+typer>=0.12
+rich>=13.0
+streamlit>=1.33
