@@ -1,4 +1,4 @@
-"""Data tests and data-realism tests (TRD 3.9 groups: Data, Data realism)."""
+"""Data tests and data-realism tests."""
 
 from __future__ import annotations
 
@@ -79,7 +79,7 @@ def test_shipped_data_matches_seed_42(gen):
 # --------------------------------------------------------- Data realism -----
 def test_cost_time_tradeoff_is_negative_within_option_set(gen):
     """The trade-off must exist where the decision happens: within a shipment's
-    own option set. Target band from the TRD is -0.4 to -0.6; we assert a
+    own option set. Design target is -0.4 to -0.6; we assert a
     clearly negative correlation and warn-by-bound on the upper side."""
     stats, _ = gen
     corr = stats["cost_time_corr_within_lane"]

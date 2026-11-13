@@ -43,7 +43,7 @@ def _validate(cfg: dict[str, Any]) -> None:
 
 
 def profile_for(priority: str, cargo_type: str, cfg: dict[str, Any] | None = None) -> str:
-    """Critical cargo overrides the priority-derived profile (PRD 3.4)."""
+    """Critical cargo overrides the priority-derived profile."""
     cfg = cfg or load_config()
     if cargo_type in cfg.get("critical_cargo_types", []):
         return "critical"

@@ -1,7 +1,7 @@
-"""Evaluation harness and PRD success criteria (TRD 3.8, PRD 1.8).
+"""Evaluation harness and the project's success criteria.
 
 The evaluation is run once per session on the real dataset; the assertions
-below are the PRD success criteria. They are checked, not assumed.
+below are the project's success criteria. They are checked, not assumed.
 """
 
 from __future__ import annotations

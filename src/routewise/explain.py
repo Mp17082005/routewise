@@ -1,4 +1,4 @@
-"""Template-based explanation engine (FR-7).
+"""Template-based explanation engine.
 
 Deliberately not an LLM: every number printed here is read directly from the
 data or from a computed score, so explanations are exact, testable, and cannot

@@ -4,6 +4,7 @@
 
 RouteWise takes a shipment and 3–5 candidate routes, then recommends one. It says why it chose that route in plain operator language, and it says how confident it is.
 
+**Author:** Mahesh Kumar Pandey · maheshkumarpandey17@gmail.com
 **Live demo:** https://routewise-123.streamlit.app/
 
 This is my submission for the Aiqon AI Internship take-home, *Optimizing Shipment Routes Under Cost, Time, and Risk Constraints*. The technical report is [`report/RouteWise_Technical_Report.pdf`](report/RouteWise_Technical_Report.pdf).
@@ -20,6 +21,45 @@ Shipment → validate → hard constraints → Pareto filter → Monte Carlo →
 - The system never recommends a route that another route beats on every criterion (Pareto filter).
 - Weighted scoring is the most explainable method available, and explainability is what the brief asks for.
 - Weights depend on context. Urgent pharma and bulk steel should not be scored the same way.
+
+## The synthetic data: what it is and how I made it
+
+The brief allows synthetic data, and no public dataset has routes with cost, time, delay *and* risk for the same shipment, so I generated one. The code is `src/routewise/generate_data.py`, and a full description is in [`data/data_card.md`](data/data_card.md).
+
+**What's in it (`data/`)**
+
+| File | Rows | What one row is |
+|---|---:|---|
+| `hubs.csv` | 14 | A port: name, congestion (0–1), geopolitical risk (0–1), handling cost per container, and whether it's a chokepoint |
+| `legs.csv` | 34 | One hop between two ports by sea, air or rail: distance, days, cost per container, chance of delay, average delay length |
+| `shipments.csv` | 40 | A shipment: origin, destination, cargo type, priority, volume, value, deadline, and optional budget cap / risk limit |
+| `routes.csv` | 163 | One route option for one shipment (3–5 per shipment), built by chaining legs together |
+
+**How it's built, step by step**
+
+1. **Ports.** 14 real ports: Mumbai, Colombo, Jebel Ali, Singapore, Port Said (Suez), Jeddah (Red Sea), Cape Town, Rotterdam, Hamburg, Shanghai, Busan, Los Angeles, New York and Santos. Suez and the Red Sea are marked as high-risk chokepoints.
+2. **Lanes.** 10 origin→destination pairs, such as Mumbai→Rotterdam and Shanghai→Los Angeles. Each lane has 4–6 realistic path types: direct, one or two stops, the long way round Africa instead of Suez, and sea + air.
+3. **Shipments.** 40 shipments spread across the lanes. Priority is about 25% urgent, 50% standard and 25% budget. Cargo is general, perishable, fragile or high-value.
+4. **Route numbers come from the legs, not made up per route:**
+   - **Cost:** leg prices × number of containers, plus port handling. Each extra stop gives a discount, because consolidated feeder services are cheaper.
+   - **Time:** sailing days, plus waiting time at each stop that grows with that port's congestion.
+   - **Chance of delay:** 1 − (chance *no* leg is delayed).
+   - **Risk:** the *riskiest* port on the route, because one chokepoint is enough to cause trouble.
+   - Then ±5% noise, because real estimates are never exact.
+5. **Deadlines.** Set from how fast the shipment's quickest sensible route is, with ×1.1 slack for urgent, ×1.3 for standard and ×1.6 for budget. That keeps every deadline realistic.
+6. **Rules.** Budget shipments get a budget cap. Fragile, perishable and high-value cargo gets a maximum risk limit.
+
+**The trade-offs are built in on purpose.** More stops means cheaper but slower. Suez is fast but risky. Round Africa is safe but slow. Air is fast but expensive. I measured it: inside each shipment's options, cost and time move in opposite directions (correlation −0.37).
+
+**Hard test cases planted on purpose.** These let me check the system does the right thing, not just something:
+- 4 **traps**, where the cheapest route misses a hard deadline. The system must not pick it.
+- 4 **near-ties**, where two routes are almost identical. The system must not claim High confidence.
+- 2 **impossible** shipments, where no route meets every rule. The system must still answer, flagged NON-COMPLIANT.
+- 18 routes (11%) that another route **beats on everything**. These must never be recommended.
+
+**Reproducible.** It uses a fixed random seed (42). Running `routewise generate-data --seed 42` recreates the same files byte for byte, and CI checks this on every push.
+
+**Honest limit.** The numbers are realistic in shape but not taken from real freight prices. Conclusions are about the decision method, not real-world costs.
 
 ## Headline results (40 shipments, seed 42)
 
@@ -139,7 +179,7 @@ The suite has **92 tests** with **92% line coverage** of `src/`. CI runs on ever
 | Golden cases | Urgent picks fast; budget picks cheap; fragile cargo avoids the chokepoint; trap; fallback |
 | Explanation | Names the chosen route and the runner-up; **every $ figure traces to data**; lists eliminated routes with reasons |
 | Sensitivity | Stability in [0,1]; zero noise gives 100%; **injected near-ties never receive High confidence** |
-| PRD success criteria | 100% Pareto-optimal; lowest worst-case regret; deadline-miss rate below cheapest; urgent faster than budget |
+| Success criteria | 100% Pareto-optimal; lowest worst-case regret; deadline-miss rate below cheapest; urgent faster than budget |
 | Integration / NFR | CLI runs on all 40 shipments; one recommendation with 1,000 MC runs takes < 1 s; output is deterministic |
 
 ## Repository layout

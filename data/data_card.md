@@ -59,7 +59,7 @@ hybrid is fastest and most reliable but far costlier.
 - **Cost vs expected-transit correlation, within each shipment's option set: -0.37**
   (this is the number that matters — it is the trade-off the decision actually faces)
 - Global pooled correlation across all lanes: -0.476
-  (positive, because long lanes are both slow and expensive — lane length is a confounder)
+  (less informative: it mixes short and long lanes, and lane length drives both cost and time)
 
 ## Injected test cases
 

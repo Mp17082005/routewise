@@ -1,4 +1,4 @@
-"""Stage 3: normalisation and weighted scoring (FR-5).
+"""Stage 3: normalisation and weighted scoring.
 
 All four criteria are lower-is-better and are min-max normalised *within the
 shipment's own option set*, because the decision is always a comparison among

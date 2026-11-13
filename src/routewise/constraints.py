@@ -1,4 +1,4 @@
-"""Stage 1: hard constraints (FR-3).
+"""Stage 1: hard constraints.
 
 Hard constraints are not traded away. A cheap route that misses a hard
 deadline is *invalid*, not merely low-scoring. If nothing passes we never

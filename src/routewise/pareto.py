@@ -1,4 +1,4 @@
-"""Stage 2: Pareto dominance filter (FR-4).
+"""Stage 2: Pareto dominance filter.
 
 Route A dominates B if A is no worse than B on all four criteria and strictly
 better on at least one. Dominated routes are never recommended, but they are

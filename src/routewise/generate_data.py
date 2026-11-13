@@ -1,4 +1,4 @@
-"""Reproducible synthetic dataset generator (FR-1).
+"""Reproducible synthetic dataset generator.
 
 Design goals, each verified by a test in tests/test_data.py:
   * 40 shipments, 3-5 route options each, every route multi-leg capable
@@ -213,7 +213,7 @@ def _build_route(
     hubs: dict[str, Hub],
     legs: dict,
 ) -> Route | None:
-    """Aggregate leg attributes into route attributes (PRD 3.3 step 4)."""
+    """Aggregate leg attributes into route attributes."""
     prefer_air = tpl.name in AIR_TEMPLATES
     chain: list[Leg] = []
     for a, b in zip(tpl.hubs[:-1], tpl.hubs[1:], strict=False):
@@ -298,7 +298,7 @@ def generate(seed: int = SEED, n_shipments: int = 40, out_dir: Path | None = Non
     shipments: list[Shipment] = []
     routes: list[Route] = []
 
-    # Injected test cases (PRD 3.3 step 7), assigned to fixed indices so the
+    # Injected test cases, assigned to fixed indices so the
     # dataset always contains the hard cases the test plan looks for.
     trap_idx = {3, 11, 19, 27, 34}  # cheapest route misses a hard deadline
     near_tie_idx = {5, 14, 23, 31}  # two routes within ~2% score
@@ -388,7 +388,7 @@ def generate(seed: int = SEED, n_shipments: int = 40, out_dir: Path | None = Non
                 )
             )
 
-        # -- deadline from the fastest route (PRD 3.3 step 5) ----------------
+        # -- deadline from the fastest route ----------------
         # The hard-deadline constraint is checked against *simulated* P90
         # transit, so the deadline is derived from exactly the same quantity --
         # the generator calls the real simulator rather than approximating it.
@@ -651,7 +651,7 @@ hybrid is fastest and most reliable but far costlier.
 - **Cost vs expected-transit correlation, within each shipment's option set: {stats["cost_time_corr_within_lane"]}**
   (this is the number that matters — it is the trade-off the decision actually faces)
 - Global pooled correlation across all lanes: {stats["cost_time_corr_global"]}
-  (positive, because long lanes are both slow and expensive — lane length is a confounder)
+  (less informative: it mixes short and long lanes, and lane length drives both cost and time)
 
 ## Injected test cases
 

@@ -1,4 +1,4 @@
-"""Evaluation harness: baselines, metrics, experiments E1-E5 (FR-10).
+"""Evaluation harness: baselines, metrics, experiments E1-E5.
 
 This is a decision problem with no ground-truth labels, so we evaluate by
 comparing *strategies* on shared metrics and by checking expected behaviours.

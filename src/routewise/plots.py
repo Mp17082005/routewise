@@ -1,4 +1,4 @@
-"""Figures for the report (FR-10)."""
+"""Figures for the report."""
 
 from __future__ import annotations
 

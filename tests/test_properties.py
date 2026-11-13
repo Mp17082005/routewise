@@ -1,4 +1,4 @@
-"""Property-based invariants (hypothesis). TRD 3.9 'Property tests'.
+"""Property-based invariants (hypothesis).
 
 These are the claims that must hold for *any* input, not just the cases we
 thought to write down.

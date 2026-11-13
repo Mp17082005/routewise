@@ -1,4 +1,4 @@
-"""Sensitivity analysis and confidence labelling (FR-9).
+"""Sensitivity analysis and confidence labelling.
 
 Weights are judgemental. The honest response is not to pretend otherwise but
 to measure how much the recommendation depends on them: if the same route wins

@@ -1,4 +1,4 @@
-"""Monte Carlo transit simulation (FR-8).
+"""Monte Carlo transit simulation.
 
 A route's delay is a distribution, not a number. The mean hides the tail that
 actually causes missed deadlines, so reliability enters the score as

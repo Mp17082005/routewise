@@ -1,4 +1,4 @@
-"""Explanation, sensitivity, edge-case and integration tests (TRD 3.9)."""
+"""Explanation, sensitivity, edge-case and integration tests."""
 
 from __future__ import annotations
 
@@ -244,7 +244,7 @@ def test_pipeline_is_deterministic(dataset):
 
 
 def test_injected_near_tie_shipments_never_get_high_confidence(dataset):
-    """TRD 3.9: the near-tie shipments get Low or Medium confidence."""
+    """The near-tie shipments get Low or Medium confidence."""
     shipments, routes_by = dataset
     near = [s for s in shipments if s.note == "near_tie"]
     assert len(near) >= 3

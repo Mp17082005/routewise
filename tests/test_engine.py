@@ -1,4 +1,4 @@
-"""Constraints, Pareto, scoring and simulation tests (TRD 3.9)."""
+"""Constraints, Pareto, scoring and simulation tests."""
 
 from __future__ import annotations
 

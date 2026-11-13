@@ -1,4 +1,4 @@
-"""RouteWise demo UI (FR-11).
+"""RouteWise demo UI.
 
 Run:  streamlit run app/streamlit_app.py
 """

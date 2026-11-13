@@ -1,4 +1,4 @@
-"""RouteWise CLI (FR-11)."""
+"""RouteWise CLI."""
 
 from __future__ import annotations
 

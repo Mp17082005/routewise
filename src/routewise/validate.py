@@ -1,4 +1,4 @@
-"""Data validation beyond schema types (FR-2)."""
+"""Data validation beyond schema types."""
 
 from __future__ import annotations
 

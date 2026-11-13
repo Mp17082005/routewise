@@ -1,4 +1,4 @@
-"""Pipeline orchestration (FR-6).
+"""Pipeline orchestration.
 
 shipment -> validate -> hard constraints -> Pareto -> Monte Carlo -> score
 -> rank -> explain -> confidence

@@ -1,4 +1,4 @@
-"""Golden cases: hand-built shipments with a known right answer (TRD 3.9)."""
+"""Golden cases: hand-built shipments with a known right answer."""
 
 from __future__ import annotations
 
@@ -138,7 +138,7 @@ def test_dominated_route_is_never_recommended():
 
 
 def test_recommendation_is_always_pareto_optimal_on_the_real_dataset(dataset):
-    """Success criterion from the PRD: 100% of picks are non-dominated."""
+    """Success criterion: 100% of picks are non-dominated."""
     from routewise.pareto import pareto_filter
 
     shipments, routes_by = dataset
