@@ -101,8 +101,7 @@ def sensitivity_plot(shipment_id: str, criterion: str = "cost", out: Path | None
 
 
 def strategy_comparison_plot(summary, out: Path | None = None) -> Path:
-    """Baselines vs RouteWise. Fixed method order across panels, value labels,
-    log scale on regret (values span ~2 orders of magnitude)."""
+    """RouteWise vs baselines: balance (log scale), late rate, rule breaks."""
     order = [
         "A1_routewise",
         "A2_no_filters",
@@ -116,47 +115,51 @@ def strategy_comparison_plot(summary, out: Path | None = None) -> Path:
     names = list(d.index)
     pretty = {
         "A1_routewise": "RouteWise",
-        "A2_no_filters": "Ablation (no filters)",
-        "B4_equal_weights": "Equal weights",
+        "A2_no_filters": "RouteWise without hard rules",
+        "B4_equal_weights": "Equal weights, no rules",
         "B2_fastest": "Always fastest",
-        "B3_lowest_risk": "Always lowest risk",
-        "B5_random": "Random",
+        "B3_lowest_risk": "Always safest",
+        "B5_random": "Random pick",
         "B1_cheapest": "Always cheapest",
     }
     colors = [
         "#1b7f3b" if n.startswith("A1") else "#7fbf8f" if n.startswith("A2") else "#8899aa" for n in names
     ]
-    y = range(len(names))
+    y = list(range(len(names)))
 
     fig, axes = plt.subplots(1, 3, figsize=(10, 3.2), sharey=True)
     panels = [
-        (
-            "worst_case_regret_feasible",
-            "Worst-case regret (log)\n1.0 = as bad as worst compliant option",
-            True,
-            "{:.2f}",
-        ),
-        ("mean_deadline_miss_rate", "Mean P(miss deadline)", False, "{:.0%}"),
-        ("constraint_violation_rate", "Share of picks violating a hard constraint", False, "{:.0%}"),
+        ("worst_case_regret_feasible", "Balance (lower = better)", True, "{:.2f}"),
+        ("mean_deadline_miss_rate", "Late rate", False, "{:.1%}"),
+        ("constraint_violation_rate", "Broke a hard rule", False, "{:.0%}"),
     ]
     for ax, (col, title, log, fmt) in zip(axes, panels, strict=True):
         vals = d[col].values
-        ax.barh(list(y), vals, color=colors)
+        ax.barh(y, vals, color=colors)
         if log:
             ax.set_xscale("log")
             ax.axvline(1.0, ls=":", c="#c23b22", lw=1, zorder=0)
             ax.set_xlim(0.4, max(vals) * 3.0)
-            ax.set_xticks([0.5, 1, 2, 5, 10, 20])
-            ax.set_xticklabels(["0.5", "1", "2", "5", "10", "20"])
+            ax.set_xticks([0.5, 2, 5, 20])
+            ax.set_xticklabels(["0.5", "2", "5", "20"])
+            ax.minorticks_off()
+        else:
+            ax.set_xlim(0, max(vals) * 1.35)
+            ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f"{x:.0%}"))
         for i, v in enumerate(vals):
             ax.annotate(
-                fmt.format(v), (v, i), xytext=(4, 0), textcoords="offset points", va="center", fontsize=8
+                fmt.format(v),
+                (v, i),
+                xytext=(22 if log and v < 1.0 else 4, 0),
+                textcoords="offset points",
+                va="center",
+                fontsize=8.5,
+                bbox={"boxstyle": "square,pad=0.15", "fc": "white", "ec": "none"},
             )
-        ax.set_title(title, fontsize=10)
+        ax.set_title(title, fontsize=10.5, fontweight="bold")
+        ax.tick_params(labelsize=8.5)
         ax.grid(axis="x", alpha=0.25)
-        if not log:
-            ax.set_xlim(0, max(vals) * 1.3)
-    axes[0].set_yticks(list(y))
+    axes[0].set_yticks(y)
     axes[0].set_yticklabels([pretty.get(n, n) for n in names], fontsize=9.5)
     axes[0].invert_yaxis()
     fig.tight_layout()
