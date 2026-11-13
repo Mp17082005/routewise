@@ -4,6 +4,8 @@
 
 RouteWise takes a shipment and 3–5 candidate routes, then recommends one. It says why it chose that route in plain operator language, and it says how confident it is.
 
+**Live demo:** https://routewise-123.streamlit.app/
+
 This is my submission for the Aiqon AI Internship take-home, *Optimizing Shipment Routes Under Cost, Time, and Risk Constraints*. The technical report is [`report/RouteWise_Technical_Report.pdf`](report/RouteWise_Technical_Report.pdf).
 
 ```
